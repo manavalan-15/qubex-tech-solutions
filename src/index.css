@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #05070d;
+    color: #f1f5f9;
+    scroll-padding-top: 5rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@keyframes subtle-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.48;
+  }
+  50% {
+    transform: translate3d(2%, -2%, 0) scale(1.04);
+    opacity: 0.65;
+  }
+}
+
+.ambient-mesh-primary {
+  animation: subtle-drift 16s ease-in-out infinite;
+}
+
+.ambient-mesh-secondary {
+  animation: subtle-drift 22s ease-in-out infinite reverse;
+}
+
+.glass-surface {
+  background: rgba(11, 17, 32, 0.68);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.glass-surface-elevated {
+  background: linear-gradient(
+    145deg,
+    rgba(15, 23, 42, 0.85) 0%,
+    rgba(9, 13, 26, 0.78) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(96, 165, 250, 0.18);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .ambient-mesh-primary,
+  .ambient-mesh-secondary {
+    animation: none;
+  }
+}
