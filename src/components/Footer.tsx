@@ -10,7 +10,6 @@ const QUICK_LINKS = [
   { label: 'Home', href: '#top' },
   { label: 'About Us', href: '#about' },
   { label: 'Our Services', href: '#services' },
-  { label: 'Creative Portfolio', href: '#portfolio' },
   { label: 'Why Choose QUBEX', href: '#why-qubex' },
   { label: 'Work Process', href: '#process' },
   { label: 'Contact Us', href: '#contact' },

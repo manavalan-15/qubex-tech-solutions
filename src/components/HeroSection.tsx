@@ -1,5 +1,6 @@
 import { ArrowRight, MessageSquare } from 'lucide-react';
 import { motion } from 'motion/react';
+import heroStudioImg from '../assets/images/hero_qubex_studio_1794559151413.jpg';
 import { COMPANY_INFO } from '../data/company';
 import { ResilientImage } from './ResilientImage';
 
@@ -91,7 +92,7 @@ export function HeroSection() {
             <div className="glass-surface-elevated relative h-full min-h-[300px] overflow-hidden rounded-2xl p-2 sm:min-h-[380px] lg:min-h-[440px]">
               <div className="relative h-full w-full overflow-hidden rounded-xl">
                 <ResilientImage
-                  src="/src/assets/images/hero_qubex_studio_1794559151413.jpg"
+                  src={heroStudioImg}
                   alt="QUBEX TECH SOLUTIONS futuristic digital studio and software engineering environment"
                   fallbackTitle="QUBEX Digital Studio"
                   className="h-full w-full object-cover lg:h-full"
@@ -110,10 +111,10 @@ export function HeroSection() {
                     </p>
                   </div>
                   <a
-                    href="#portfolio"
+                    href="#contact"
                     className="inline-flex items-center gap-1.5 rounded-lg border border-white/15 bg-[#05070D]/75 px-3.5 py-2 text-xs font-medium text-white backdrop-blur-md transition-colors hover:border-blue-400/50 hover:bg-blue-600/20 whitespace-nowrap shrink-0"
                   >
-                    <span>View Portfolio</span>
+                    <span>Get a Quote</span>
                     <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </a>
                 </div>

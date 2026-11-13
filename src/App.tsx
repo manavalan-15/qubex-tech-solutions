@@ -9,31 +9,18 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { HeroSection } from './components/HeroSection';
 import { Navbar } from './components/Navbar';
-import { PortfolioModal } from './components/PortfolioModal';
-import { PortfolioSection } from './components/PortfolioSection';
 import { ProcessSection } from './components/ProcessSection';
 import { ServiceModal } from './components/ServiceModal';
 import { ServicesSection } from './components/ServicesSection';
 import { WhyChooseSection } from './components/WhyChooseSection';
-import { PortfolioProject } from './data/portfolio';
 import { ServiceItem } from './data/services';
 
 export default function App() {
   const [activeService, setActiveService] = useState<ServiceItem | null>(null);
-  const [activeProject, setActiveProject] = useState<PortfolioProject | null>(
-    null,
-  );
   const [contactService, setContactService] = useState('');
-  const [contactNote, setContactNote] = useState('');
 
-  const scrollToContactWithService = (
-    serviceTitle: string,
-    projectTitle?: string,
-  ) => {
+  const scrollToContactWithService = (serviceTitle: string) => {
     setContactService(serviceTitle);
-    if (projectTitle) {
-      setContactNote(projectTitle);
-    }
     const contactEl = document.getElementById('contact');
     if (contactEl) {
       contactEl.scrollIntoView({ behavior: 'smooth' });
@@ -58,13 +45,9 @@ export default function App() {
         <HeroSection />
         <AboutSection />
         <ServicesSection onSelectService={setActiveService} />
-        <PortfolioSection onOpenProject={setActiveProject} />
         <WhyChooseSection />
         <ProcessSection />
-        <ContactSection
-          preselectedService={contactService}
-          preselectedNote={contactNote}
-        />
+        <ContactSection preselectedService={contactService} />
       </main>
 
       <Footer onSelectService={setActiveService} />
@@ -73,25 +56,6 @@ export default function App() {
         service={activeService}
         onClose={() => setActiveService(null)}
         onRequestService={(title) => scrollToContactWithService(title)}
-      />
-
-      <PortfolioModal
-        project={activeProject}
-        onClose={() => setActiveProject(null)}
-        onInquireSimilar={(category, title) => {
-          const serviceMap: Record<string, string> = {
-            'Website Development': 'Website Development',
-            'Mobile Apps': 'Web & Mobile App Development',
-            'Video Editing': 'Video Editing',
-            'Photo Editing': 'Photo Editing & Graphic Design',
-            'Graphic Design': 'Photo Editing & Graphic Design',
-            'Digital Marketing': 'Digital Marketing',
-          };
-          scrollToContactWithService(
-            serviceMap[category] || 'Website Development',
-            title,
-          );
-        }}
       />
     </div>
   );
